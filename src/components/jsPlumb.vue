@@ -19,12 +19,12 @@
 </template>
 
 <script>
-import jp from 'jsplumb'
+import { jsPlumb } from 'jsplumb'
 
 export default {
   name: 'jsPlumb',
   mounted: function () {
-    jp.jsPlumb.ready(function () {
+    jsPlumb.ready(function () {
       var common = {
         connector: ['Straight'],
         anchor: ['Left', 'Right'],
@@ -33,17 +33,17 @@ export default {
         endpointStyle: { fill: 'gray' }
       }
 
-      jp.jsPlumb.connect({
+      jsPlumb.connect({
         source: 'item_left',
         target: 'item_right'
       }, common)
 
-      jp.jsPlumb.draggable('item_left')
-      jp.jsPlumb.draggable('item_right')
+      jsPlumb.draggable('item_left')
+      jsPlumb.draggable('item_right')
     })
   },
   destroyed: function () {
-    jp.jsPlumb.detachEveryConnection()
+    jsPlumb.detachEveryConnection()
   }
 
 }
